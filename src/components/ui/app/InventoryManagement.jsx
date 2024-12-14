@@ -103,7 +103,7 @@ const InventoryManagement = () => {
           <div className="capitalize">
             {isEditing ? (
               <Select
-                value={editedData.category || row.getValue("category ")}
+                value={editedData.category || row.getValue("category")}
                 onValueChange={(value) =>
                   setEditedData({ ...editedData, category: value })
                 }
