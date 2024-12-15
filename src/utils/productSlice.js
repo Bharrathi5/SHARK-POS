@@ -6,7 +6,6 @@ const productSlice = createSlice({
     products: [],
     brands: [],
     categories: [],
-    selectedProduct: null,
   },
   reducers: {
     setProducts: (state, action) => {
@@ -17,9 +16,6 @@ const productSlice = createSlice({
       state.categories = [
         ...new Set(action.payload.map((product) => product.category)),
       ];
-    },
-    setSelectedProduct: (state, action) => {
-      state.selectedProduct = action.payload;
     },
     addProduct: (state, action) => {
       state.products.push(action.payload);
@@ -40,12 +36,7 @@ const productSlice = createSlice({
   },
 });
 
-export const {
-  setProducts,
-  setSelectedProduct,
-  addProduct,
-  updateProduct,
-  deleteProduct,
-} = productSlice.actions;
+export const { setProducts, addProduct, updateProduct, deleteProduct } =
+  productSlice.actions;
 
 export default productSlice.reducer;
