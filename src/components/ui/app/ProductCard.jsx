@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "../button";
 import { IMG } from "@/utils/constants";
-import { IndianRupee } from "lucide-react";
+import { IndianRupee, Minus, Plus } from "lucide-react";
 
 import PropTypes from "prop-types";
 
@@ -48,21 +48,23 @@ const ProductCard = ({
         </CardContent>
         <CardFooter>
           {cartItem ? (
-            <div className="flex items-center">
+            <div className="flex flex-row justify-between items-center w-full bg-secondary rounded-full">
               <Button
                 variant="outline"
                 size="icon"
+                className="bg-primary rounded-full text-secondary hover:text-primary"
                 onClick={() => onDecrementQuantity(variant._id)}
               >
-                -
+                <Minus />
               </Button>
-              <span className="mx-2">{cartItem.quantity}</span>
+              <span className="mx-2 text-primary">{cartItem.quantity}</span>
               <Button
                 variant="outline"
                 size="icon"
+                className="bg-primary rounded-full text-secondary hover:text-primary"
                 onClick={() => onIncrementQuantity(variant._id)}
               >
-                +
+                <Plus />
               </Button>
             </div>
           ) : (
