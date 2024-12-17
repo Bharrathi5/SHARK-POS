@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import {
   Table,
   TableBody,
+  TableCell,
   TableHead,
   TableHeader,
   TableRow,
@@ -127,19 +128,25 @@ const Inventory = () => {
                 setNewProduct={setNewProduct}
               />
             )}
-            {products.map((product, index) => (
-              <Row
-                key={product._id}
-                row={product}
-                rowIndex={index}
-                brands={brands}
-                categories={categories}
-                isEditing={editingRow === index}
-                isAdd={isAdd}
-                setEditingRow={setEditingRow}
-                onSave={handleSave}
-              />
-            ))}
+            {products.length ? (
+              products.map((product, index) => (
+                <Row
+                  key={product._id}
+                  row={product}
+                  rowIndex={index}
+                  brands={brands}
+                  categories={categories}
+                  isEditing={editingRow === index}
+                  isAdd={isAdd}
+                  setEditingRow={setEditingRow}
+                  onSave={handleSave}
+                />
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={1}>No Products Available</TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </div>
