@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Separator } from "../separator";
 
 const PointOfSale = () => {
   const { products } = useSelector((store) => store.table);
@@ -49,7 +50,7 @@ const PointOfSale = () => {
     setCart((prevCart) =>
       prevCart
         .map((item) =>
-          item.variant._id === variantId && item.quantity > 1
+          item.variant._id === variantId && item.quantity >= 1
             ? { ...item, quantity: item.quantity - 1 }
             : item
         )
@@ -80,47 +81,58 @@ const PointOfSale = () => {
             ))
           )}
         </div>
-        <div className="flex felx-col flex-wrap gap-6 mt-10">
-          <Card className="w-[300px]">
+        <div className="flex mt-10">
+          <Card className="w-[300px] bg-muted">
             <CardHeader>
               <CardTitle>Cart</CardTitle>
               <CardDescription>Items on your cart</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="">
-                {cart.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center"
-                  >
-                    <div className="flex flex-col">
-                      <strong>{item.productName}</strong>
-                      <div className="flex items-center mt-1">
-                        <IndianRupee className="size-4" />
-                        <span className="ml-1">{item.variant.price}</span>
+                {cart.length ? (
+                  cart.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col gap-4 justify-between items-center space-y-2 mb-6"
+                    >
+                      <div className="flex flex-row gap-5 justify-around">
+                        <div className="flex flex-col">
+                          <strong>{item.productName}</strong>
+                          <div className="flex items-center mt-1">
+                            <IndianRupee className="size-4" />
+                            <span className="ml-1">{item.variant.price}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="mx-2"
+                            onClick={() =>
+                              handleDecrementQuantity(item.variant._id)
+                            }
+                          >
+                            -
+                          </Button>
+                          <span>{item.quantity}</span>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            className="mx-2"
+                            onClick={() =>
+                              handleIncrementQuantity(item.variant._id)
+                            }
+                          >
+                            +
+                          </Button>
+                        </div>
                       </div>
+                      <Separator className="bg-primary " />
                     </div>
-                    <div className="flex items-center">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="mx-2"
-                        onClick={() => handleDecrementQuantity(item.variant)}
-                      >
-                        -
-                      </Button>
-                      <span>{item.quantity}</span>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="mx-2"
-                        onClick={() => handleIncrementQuantity(item.variant)}
-                      >
-                        +
-                      </Button>
-                    </div>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <div>Your cart is empty!</div>
+                )}
               </div>
               <div className="py-4">
                 <strong>Total: ₹{calculateTotal()}</strong>
