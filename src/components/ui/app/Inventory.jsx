@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/ui/button";
 
 import {
   Table,
@@ -10,7 +10,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from "@/components/ui/ui/table";
 
 import { addProduct, updateProduct } from "@/utils/productSlice";
 import { Plus } from "lucide-react";

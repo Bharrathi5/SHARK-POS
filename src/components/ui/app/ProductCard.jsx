@@ -5,8 +5,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "../button";
+} from "@/components/ui/ui/card";
+import { Button } from "../ui/button";
 import { IMG } from "@/utils/constants";
 import { IndianRupee, Minus, Plus } from "lucide-react";
 

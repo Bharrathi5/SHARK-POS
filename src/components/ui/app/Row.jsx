@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { TableCell, TableRow } from "@/components/ui/table";
+import { TableCell, TableRow } from "@/components/ui/ui/table";
 import {
   Select,
   SelectContent,
@@ -9,9 +9,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "../select";
-import { Input } from "../input";
-import { Button } from "../button";
+} from "../ui/select";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import { Pencil, Save, X } from "lucide-react";
 const Row = React.memo(
   ({ row, rowIndex, brands, categories, isEditing, setEditingRow, onSave }) => {

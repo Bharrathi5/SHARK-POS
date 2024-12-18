@@ -1,5 +1,5 @@
-import { Button } from "../button";
-import { Input } from "../input";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 import {
   Select,
   SelectContent,
@@ -8,10 +8,10 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "../select";
+} from "../ui/select";
 import { Plus, Save, X } from "lucide-react";
 import PropTypes from "prop-types";
-import { TableCell, TableRow } from "../table";
+import { TableCell, TableRow } from "../ui/table";
 
 const AddProductRow = ({
   newProduct,

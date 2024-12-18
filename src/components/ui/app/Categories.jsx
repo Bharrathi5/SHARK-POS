@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../table";
+} from "../ui/table";
 
 const Categories = () => {
   const categories = useSelector((state) => state.table?.categories);

@@ -1,6 +1,6 @@
 import Body from "./components/ui/app/Body";
 import NavSide from "./components/ui/app/NavSide";
-import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "./components/ui/ui/sidebar";
 
 function App() {
   return (

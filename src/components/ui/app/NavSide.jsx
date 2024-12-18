@@ -19,7 +19,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "../sidebar";
+} from "../ui/sidebar";
 
 const NavSide = () => {
   const { isMobile, openMobile, setOpenMobile } = useSidebar();

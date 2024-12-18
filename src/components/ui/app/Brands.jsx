@@ -6,7 +6,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../table";
+} from "../ui/table";
 
 const Brands = () => {
   const brands = useSelector((state) => state.table?.brands);

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
-import { Button } from "../button";
+import { Button } from "../ui/button";
 import { IndianRupee } from "lucide-react";
 import {
   Card,
@@ -10,8 +10,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "../separator";
+} from "@/components/ui/ui/card";
+import { Separator } from "../ui/separator";
 
 const PointOfSale = () => {
   const { products } = useSelector((store) => store.table);
