@@ -24,13 +24,13 @@ const ProductCard = ({
   const cartItem = cart.find((item) => item.variant._id === variant._id);
   return (
     <div>
-      <Card className="w-[300px]">
+      <Card className="w-[280px]">
         <CardHeader>
           <CardTitle>{productName}</CardTitle>
           <CardDescription>{productCategory}</CardDescription>
         </CardHeader>
         <CardContent>
-          <img className="w-40 h-40 mx-auto" src={IMG} />
+          <img className="w-40 h-40 mx-auto" src={IMG} alt="product_img" />
           <div className="flex flex-col justify-between">
             <div>
               <div className="flex place-items-center">

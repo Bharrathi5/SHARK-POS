@@ -92,7 +92,7 @@ const Inventory = () => {
 
   return (
     <div>
-      <h1 className="text-4xl my-10">Inventory Management</h1>
+      <h1>Inventory Management</h1>
       <div className="flex justify-end ml-10">
         <Button onClick={handleClick}>
           <Plus />
