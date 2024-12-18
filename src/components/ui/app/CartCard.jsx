@@ -16,7 +16,9 @@ const CartCard = ({
   onIncrementQuantity,
   onDecrementQuantity,
   calculateTotal,
+  onCheckOut,
 }) => {
+  const total = calculateTotal();
   return (
     <div>
       <Card className="w-[300px] bg-muted">
@@ -68,11 +70,11 @@ const CartCard = ({
             )}
           </div>
           <div className="py-4">
-            <strong>Total: ₹{calculateTotal()}</strong>
+            <strong>Total: ₹{total}</strong>
           </div>
         </CardContent>
         <CardFooter>
-          <Button>Checkout</Button>
+          <Button onClick={() => onCheckOut(cart, total)}>Checkout</Button>
         </CardFooter>
       </Card>
     </div>
@@ -93,6 +95,7 @@ CartCard.propTypes = {
   onIncrementQuantity: PropTypes.func.isRequired,
   onDecrementQuantity: PropTypes.func.isRequired,
   calculateTotal: PropTypes.func.isRequired,
+  onCheckOut: PropTypes.func.isRequired,
 };
 
 export default CartCard;

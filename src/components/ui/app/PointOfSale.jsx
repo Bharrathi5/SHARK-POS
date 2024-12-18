@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "./ProductCard";
 import { useState } from "react";
 import CartCard from "./CartCard";
+import { addOrders } from "@/utils/orderSlice";
 
 const PointOfSale = () => {
+  const dispatch = useDispatch();
   const { products } = useSelector((store) => store.table);
   const [cart, setCart] = useState([]);
 
@@ -51,6 +53,19 @@ const PointOfSale = () => {
   const calculateTotal = () =>
     cart.reduce((total, item) => total + item.variant.price * item.quantity, 0);
 
+  const handleCheckOut = (cart, total) => {
+    const order = {
+      id: Date.now(),
+      items: cart,
+      total,
+      createdAt: new Date().toISOString(),
+      paymentStatus: "Pending",
+    };
+
+    dispatch(addOrders(order));
+    setCart([]);
+  };
+
   return (
     <div>
       <h1>Point Of Sales</h1>
@@ -77,6 +92,7 @@ const PointOfSale = () => {
           onIncrementQuantity={handleIncrementQuantity}
           onDecrementQuantity={handleDecrementQuantity}
           calculateTotal={calculateTotal}
+          onCheckOut={handleCheckOut}
         />
       </div>
     </div>
