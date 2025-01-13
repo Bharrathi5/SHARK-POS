@@ -81,7 +81,7 @@ const NavSide = () => {
                     </div>
                     <div className="grid flex-1 text-left  leading-tight">
                       <span className="truncate font-bold text-xl">
-                        BOLT POS
+                        SHARK POS
                       </span>
                       <span className="truncate text-sm">Enterprise</span>
                     </div>
